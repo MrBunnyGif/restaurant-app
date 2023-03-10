@@ -1,17 +1,20 @@
+import { useId } from 'react'
+
 const BascketItem = (props: { name: string }) => (
-    <li>
-        <div style={{
-            width: '100%',
-            justifyContent: 'space-between',
-            display: 'flex'
-        }}>{props.name} - Quant. - <input type="checkbox" /> </div>
-    </li>
+    <div style={{
+        width: '100%',
+        justifyContent: 'space-between',
+        display: 'flex'
+    }}>{props.name} - Quant. <input type="checkbox" disabled /> </div>
 )
 
 export default (props: { items: any[] }) => (
-    <ul>
+    <div style={{
+        padding: '0.5rem',
+        paddingTop: '3rem'
+    }}>
         {props.items.map(i => (
-            <BascketItem name={i} />
+            <BascketItem key={useId()} name={i} />
         ))}
-    </ul>
+    </div>
 )
