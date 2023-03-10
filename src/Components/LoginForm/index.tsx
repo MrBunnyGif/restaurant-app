@@ -19,8 +19,8 @@ export default () => {
                 maxWidth: '70%',
                 margin: 'auto'
             }}>
-                <Input placeholder="email" />
-                <Input placeholder="password" />
+                <Input placeholder="Nome" />
+                <Input type="number" placeholder="N° de pessoas" />
                 <Buton />
             </div>
         </div>
