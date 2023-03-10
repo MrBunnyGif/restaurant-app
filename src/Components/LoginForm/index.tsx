@@ -1,6 +1,6 @@
 import Input from "../Form/Input"
 import logo from '../../logo.svg'
-import Buton from "../Buton"
+import Buton from "../Button"
 
 export default () => {
     return (

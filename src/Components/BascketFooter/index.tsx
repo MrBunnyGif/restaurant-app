@@ -1,4 +1,4 @@
-import Button from '../Buton'
+import Button from '../Button'
 
 export default (props: { inBascket?: boolean }) => (
     <footer style={{

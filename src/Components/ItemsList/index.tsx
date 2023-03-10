@@ -1,12 +1,6 @@
 import { useId } from 'react'
+import BascketItem from '../BascketItem'
 
-const BascketItem = (props: { name: string }) => (
-    <div style={{
-        width: '100%',
-        justifyContent: 'space-between',
-        display: 'flex'
-    }}>{props.name} - Quant. <input type="checkbox" disabled /> </div>
-)
 
 export default (props: { items: any[] }) => (
     <div style={{

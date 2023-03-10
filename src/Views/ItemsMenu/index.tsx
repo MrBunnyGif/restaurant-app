@@ -1,3 +1,4 @@
+import { useId } from 'react'
 import BascketFooter from "../../Components/BascketFooter";
 import MenuItem from "../../Components/MenuItem";
 
@@ -11,7 +12,7 @@ export default () => (
         padding: '.5rem',
         paddingBottom: 'calc(.5rem + 53px)'
     }}>
-        {twentyFiveItems.map(() => <MenuItem />)}
+        {twentyFiveItems.map(() => <MenuItem key={useId()} />)}
         <BascketFooter />
     </div>
 

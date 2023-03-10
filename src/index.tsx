@@ -5,6 +5,7 @@ import Login from './Views/Login';
 import reportWebVitals from './reportWebVitals';
 import ItemsMenu from './Views/ItemsMenu';
 import Bascket from './Views/Bascket';
+import SectionInfo from './Views/SectionInfo';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -13,7 +14,8 @@ root.render(
   <React.StrictMode>
     {/* <Login /> */}
     {/* <ItemsMenu/> */}
-    <Bascket />
+    {/* <Bascket /> */}
+    <SectionInfo />
   </React.StrictMode>
 );
 
