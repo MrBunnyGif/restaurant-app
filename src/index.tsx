@@ -7,6 +7,10 @@ import ItemsMenu from './Views/ItemsMenu';
 import Bascket from './Views/Bascket';
 import SectionInfo from './Views/SectionInfo';
 import ItemInfo from './Views/ItemInfo';
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
