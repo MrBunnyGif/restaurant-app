@@ -4,6 +4,7 @@ import './index.css';
 import Login from './Views/Login';
 import reportWebVitals from './reportWebVitals';
 import ItemsMenu from './Views/ItemsMenu';
+import Bascket from './Views/Bascket';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -11,7 +12,8 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     {/* <Login /> */}
-    <ItemsMenu/>
+    {/* <ItemsMenu/> */}
+    <Bascket />
   </React.StrictMode>
 );
 
