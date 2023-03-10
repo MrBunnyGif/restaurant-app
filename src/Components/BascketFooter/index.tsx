@@ -1,6 +1,7 @@
+import { actionFooterType } from '../../types/Components'
 import Button from '../Button'
 
-export default (props: { inBascket?: boolean }) => (
+export default (props: actionFooterType) => (
     <footer style={{
         backgroundColor: 'tomato',
         position: 'fixed',
@@ -10,7 +11,7 @@ export default (props: { inBascket?: boolean }) => (
         padding: '1rem 0.5rem',
         display: 'flex',
         justifyContent: 'space-between'
-    }}>
+    }} {...props}>
         <div>
             {props.inBascket ?
                 <></>
