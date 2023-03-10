@@ -6,7 +6,7 @@ export default () => (
         <footer style={{
             display: 'flex',
             justifyContent: 'space-between',
-            padding: '.5rem 1rem'
+            padding: '.5rem'
         }}>
             <span>Nome aqui</span>
             <span>Preço aqui</span>

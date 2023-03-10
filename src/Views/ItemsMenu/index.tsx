@@ -8,9 +8,10 @@ export default () => (
         display: 'grid',
         gridTemplateColumns: '1fr 1fr',
         gap: '.5rem',
-        padding: '.5rem'
+        padding: '.5rem',
+        paddingBottom: 'calc(.5rem + 53px)'
     }}>
-        {twentyFiveItems.map(i => <MenuItem />)}
+        {twentyFiveItems.map(() => <MenuItem />)}
         <BascketFooter />
     </div>
 
