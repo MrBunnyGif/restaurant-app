@@ -1,15 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './Views/Login/App';
+import Login from './Views/Login';
 import reportWebVitals from './reportWebVitals';
+import ItemsMenu from './Views/ItemsMenu';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <App />
+    {/* <Login /> */}
+    <ItemsMenu/>
   </React.StrictMode>
 );
 
