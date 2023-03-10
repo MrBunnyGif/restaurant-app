@@ -12,16 +12,35 @@ import {
   RouterProvider,
 } from "react-router-dom";
 
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <Login />,
+  },
+  {
+    path: '/menu',
+    element: <ItemsMenu />,
+  },
+  {
+    path: '/bascket',
+    element: <Bascket />,
+  },
+  {
+    path: '/section',
+    element: <SectionInfo />,
+  },
+  {
+    path: '/item',
+    element: <ItemInfo />,
+  },
+]);
+
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <Login />
-    {/* <ItemsMenu/> */}
-    {/* <Bascket /> */}
-    {/* <SectionInfo /> */}
-    {/* <ItemInfo /> */}
+    <RouterProvider router={router} />
   </React.StrictMode>
 );
 
