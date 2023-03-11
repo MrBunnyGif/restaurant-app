@@ -1,7 +1,7 @@
-import { actionFooterType } from '../../types/Components'
+import { divType } from '../../types/Components'
 import Button from '../Button'
 
-export default (props: actionFooterType) => (
+export default (props: divType) => (
     <footer style={{
         backgroundColor: 'tomato',
         position: 'fixed',

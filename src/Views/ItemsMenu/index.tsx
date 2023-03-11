@@ -16,7 +16,7 @@ export default () => {
             padding: '.5rem',
             paddingBottom: 'calc(.5rem + 53px)'
         }}>
-            {twentyFiveItems.map(() => <MenuItem key={useId()} />)}
+            {twentyFiveItems.map(() => <MenuItem onClick={()=>navigate('/item')} key={useId()} />)}
             <BascketFooter onClick={() => navigate('/bascket')} />
         </div>
 
