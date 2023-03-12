@@ -5,6 +5,7 @@ import BascketItem from '../../Components/BascketItem'
 import BascketFooter from '../../Components/BascketFooter';
 import { useNavigate } from "react-router-dom";
 import CloseButton from '../../Components/CloseButton';
+import Auth from '../../Auth';
 
 const itemsBoxStyle = {
 	outline: '1px solid tomato',
@@ -15,10 +16,17 @@ const itemsBoxStyle = {
 
 export default () => {
 	const navigate = useNavigate();
+
+	const handleFinish = () => {
+		Auth.finishSection()
+			.then(() => navigate('/'))
+			.catch(error => { throw new Error(error) })
+	}
+
 	return (
 		<>
-		<CloseButton />
-		
+			<CloseButton />
+
 			<div style={{
 				padding: '1rem'
 			}}>
@@ -29,7 +37,7 @@ export default () => {
 					justifyContent: 'space-around'
 				}}>
 					<img width={100} src={logo} className="App-logo" alt="logo" />
-					<Button onClick={() => navigate('/')} />
+					<Button onClick={handleFinish} />
 				</div>
 
 				<div>

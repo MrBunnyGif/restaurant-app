@@ -11,6 +11,7 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
+import Auth from './Auth';
 
 const router = createBrowserRouter([
   {
@@ -38,6 +39,9 @@ const router = createBrowserRouter([
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
+
+Auth.verifyIfSectionOn()
+
 root.render(
   <React.StrictMode>
     <RouterProvider router={router} />
