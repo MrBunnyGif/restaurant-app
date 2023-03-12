@@ -38,6 +38,8 @@ class Auth {
 			resolve('Sessão finalizada com sucesso')
 		})
 	}
+
+	get isSectionOn() { return this.sectionOn }
 }
 
 export default new Auth()

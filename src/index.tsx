@@ -9,38 +9,41 @@ import SectionInfo from './Views/SectionInfo';
 import ItemInfo from './Views/ItemInfo';
 import {
   createBrowserRouter,
+  Navigate,
   RouterProvider,
 } from "react-router-dom";
 import Auth from './Auth';
 
+Auth.verifyIfSectionOn()
+
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <Login />,
+    element: Auth.isSectionOn ? <Navigate to="/menu" replace={true} /> : <Login />,
   },
   {
     path: '/menu',
-    element: <ItemsMenu />,
+    element: !Auth.isSectionOn ? <Navigate to="/" replace={true} /> : <ItemsMenu />,
   },
   {
     path: '/bascket',
-    element: <Bascket />,
+    element: !Auth.isSectionOn ? <Navigate to="/" replace={true} /> : <Bascket />,
   },
   {
     path: '/section',
-    element: <SectionInfo />,
+    element: !Auth.isSectionOn ? <Navigate to="/" replace={true} /> : <SectionInfo />,
   },
   {
     path: '/item',
-    element: <ItemInfo />,
+    element: !Auth.isSectionOn ? <Navigate to="/" replace={true} /> : <ItemInfo />,
   },
 ]);
+
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 
-Auth.verifyIfSectionOn()
 
 root.render(
   <React.StrictMode>
