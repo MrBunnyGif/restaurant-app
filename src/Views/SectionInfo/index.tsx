@@ -3,6 +3,8 @@ import logo from '../../logo.svg'
 import Button from "../../Components/Button";
 import BascketItem from '../../Components/BascketItem'
 import BascketFooter from '../../Components/BascketFooter';
+import { useNavigate } from "react-router-dom";
+import CloseButton from '../../Components/CloseButton';
 
 const itemsBoxStyle = {
 	outline: '1px solid tomato',
@@ -11,39 +13,44 @@ const itemsBoxStyle = {
 	paddingRight: '.5rem'
 }
 
-export default () => (
-	<>
-		<div style={{
-			padding: '1rem'
-		}}>
+export default () => {
+	const navigate = useNavigate();
+	return (
+		<>
+		<CloseButton />
+		
 			<div style={{
-				outline: '1px solid red',
-				display: 'flex',
-				alignItems: 'center',
-				justifyContent: 'space-around'
+				padding: '1rem'
 			}}>
-				<img width={100} src={logo} className="App-logo" alt="logo" />
-				<Button />
-			</div>
+				<div style={{
+					outline: '1px solid red',
+					display: 'flex',
+					alignItems: 'center',
+					justifyContent: 'space-around'
+				}}>
+					<img width={100} src={logo} className="App-logo" alt="logo" />
+					<Button onClick={() => navigate('/')} />
+				</div>
 
-			<div>
-				<h3>Itens a serem entregues à mesa</h3>
-				<div style={itemsBoxStyle}>
-					{['1', '2', '3'].map(i => (
-						<BascketItem key={useId()} name={i} />
-					))}
+				<div>
+					<h3>Itens a serem entregues à mesa</h3>
+					<div style={itemsBoxStyle}>
+						{['1', '2', '3'].map(i => (
+							<BascketItem key={useId()} name={i} />
+						))}
+					</div>
+				</div>
+
+				<div>
+					<h3>Itens já entregues à mesa</h3>
+					<div style={itemsBoxStyle}>
+						{['4', '5', '6', '7', '8', '9', '10'].map(i => (
+							<BascketItem key={useId()} name={i} />
+						))}
+					</div>
 				</div>
 			</div>
-
-			<div>
-				<h3>Itens já entregues à mesa</h3>
-				<div style={itemsBoxStyle}>
-					{['4', '5', '6', '7', '8', '9', '10'].map(i => (
-						<BascketItem key={useId()} name={i} />
-					))}
-				</div>
-			</div>
-		</div>
-		<BascketFooter />
-	</>
-)
+			<BascketFooter />
+		</>
+	)
+}
