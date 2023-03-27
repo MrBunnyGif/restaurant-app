@@ -3,51 +3,31 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import Login from './Views/Login';
 import reportWebVitals from './reportWebVitals';
-import ItemsMenu from './Views/ItemsMenu';
-import Bascket from './Views/Bascket';
-import SectionInfo from './Views/SectionInfo';
-import ItemInfo from './Views/ItemInfo';
 import {
-  createBrowserRouter,
-  Navigate,
-  RouterProvider,
+  BrowserRouter,
+  Route,
+  Routes,
 } from "react-router-dom";
 import Auth from './Auth';
+import PrivateRoutes from './PrivateRoutes';
+import routes from './Routes'
 
 Auth.verifyIfSectionOn()
-
-const router = createBrowserRouter([
-  {
-    path: '/',
-    element: Auth.isSectionOn ? <Navigate to="/menu" replace={true} /> : <Login />,
-  },
-  {
-    path: '/menu',
-    element: !Auth.isSectionOn ? <Navigate to="/" replace={true} /> : <ItemsMenu />,
-  },
-  {
-    path: '/bascket',
-    element: !Auth.isSectionOn ? <Navigate to="/" replace={true} /> : <Bascket />,
-  },
-  {
-    path: '/section',
-    element: !Auth.isSectionOn ? <Navigate to="/" replace={true} /> : <SectionInfo />,
-  },
-  {
-    path: '/item',
-    element: !Auth.isSectionOn ? <Navigate to="/" replace={true} /> : <ItemInfo />,
-  },
-]);
-
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 
-
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<Login />} />
+        <Route element={<PrivateRoutes />}>
+          {routes.map(route => <Route {...route} />)}
+        </Route>
+      </Routes>
+    </BrowserRouter>
   </React.StrictMode>
 );
 
