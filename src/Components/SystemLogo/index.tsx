@@ -1,4 +1,4 @@
-import logo from '../../logo.svg'
+const logo = require("../../logo.svg") as string;
 
 export default () => (
     <footer style={{

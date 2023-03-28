@@ -1,11 +1,11 @@
 import { useId } from 'react'
-import logo from '../../logo.svg'
 import Button from "../../Components/Button";
 import BascketItem from '../../Components/BascketItem'
 import BascketFooter from '../../Components/BascketFooter';
 import { useNavigate } from "react-router-dom";
 import CloseButton from '../../Components/CloseButton';
 import Auth from '../../Auth';
+const logo = require("../../logo.svg") as string;
 
 const itemsBoxStyle = {
 	outline: '1px solid tomato',

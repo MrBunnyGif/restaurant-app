@@ -1,9 +1,9 @@
 import Input from "../Form/Input"
-import logo from '../../logo.svg'
 import Buton from "../Button"
 import { useNavigate } from "react-router-dom";
 import { useState } from 'react'
 import Auth from "../../Auth";
+const logo = require("../../logo.svg") as string;
 
 export default () => {
 	const navigate = useNavigate();
