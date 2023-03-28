@@ -1,5 +1,6 @@
-import  { HTMLAttributes } from "react";
+import { HTMLAttributes } from "react";
 
-export interface divType extends HTMLAttributes<HTMLDivElement>  {
-    inBascket?: boolean
+export interface divType {
+    inBascket?: boolean,
+    onClick?: (v: any) => void
 }

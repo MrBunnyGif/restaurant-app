@@ -11,7 +11,7 @@ export default (props: divType) => (
         padding: '1rem 0.5rem',
         display: 'flex',
         justifyContent: 'space-between'
-    }} {...props}>
+    }} onClick={props.onClick}>
         <div>
             {props.inBascket ?
                 <></>

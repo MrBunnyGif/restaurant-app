@@ -19,7 +19,8 @@ export default () => (
 			}}>
 				{[1, 2, 3, 4, 5].map(i => (
 					<div key={i} style={i !== 5 ? { marginRight: '1rem' } : undefined}>
-						<MenuItem />
+						<span>Produto aqui</span>
+						{/* <MenuItem /> */}
 					</div>
 				))}
 			</div>

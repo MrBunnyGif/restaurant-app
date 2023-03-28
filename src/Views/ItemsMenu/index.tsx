@@ -13,17 +13,13 @@ const twentyFiveItems = 'a'.replaceAll('a', 'aaaaa').replaceAll('a', 'aaaaa').sp
 export default () => {
 	const navigate = useNavigate()
 	const dispatch = useDispatch()
-	const count = useSelector((state: RootState) => state.products.productsList)
+	const productsList = useSelector((state: RootState) => state.products.productsList)
 
 	useEffect(() => {
 		getProductsList()
 			.then((res: any) => dispatch(createProductsList(res.data.products)))
 			.catch(err => console.log(err))
 	}, [])
-
-	useEffect(() => {
-		console.log("🚀 ~ file: index.tsx:27 ~ useEffect ~ count:", count)
-	}, [count])
 
 	return (
 		<>
@@ -36,7 +32,11 @@ export default () => {
 				padding: '.5rem',
 				paddingBottom: 'calc(.5rem + 53px)'
 			}}>
-				{twentyFiveItems.map(() => <MenuItem onClick={() => navigate('/item')} key={useId()} />)}
+				{productsList.length ?
+					productsList.map(product => <MenuItem {...product} onClick={() => navigate('/item')} key={product.id} />)
+					:
+					<h2>Carregando produtos...</h2>
+				}
 				<BascketFooter onClick={() => navigate('/bascket')} />
 			</div>
 		</>
