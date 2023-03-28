@@ -1,9 +1,34 @@
-import { useParams } from "react-router";
+import { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router";
 import BascketFooter from "../../Components/BascketFooter";
 import CloseButton from "../../Components/CloseButton";
+import { getProductInfo, getProductsList } from "../../services";
+import { Product } from "../../types/Redux";
+import { useSelector, useDispatch } from 'react-redux'
+import type { RootState } from '../../store'
+import MenuItem from "../../Components/MenuItem";
+import { createProductsList } from "../../slice";
 
 export default () => {
 	const { id } = useParams();
+	const [product, setProduct] = useState<Product>()
+	const dispatch = useDispatch()
+	const productsList = useSelector((state: RootState) => {
+		if (!state.products.productsList.length)
+			getProductsList()
+				.then((res: any) => dispatch(createProductsList(res.data.products)))
+				.catch(err => console.error(err))
+		return state.products.productsList
+	})
+	const navigate = useNavigate()
+
+	useEffect(() => {
+		if (!id)
+			return
+		getProductInfo(id)
+			.then((res: any) => setProduct(res.data))
+			.catch(err => console.error(err))
+	}, [id])
 
 	return (
 		<>
@@ -12,18 +37,17 @@ export default () => {
 				padding: '.5rem',
 				paddingBottom: 'calc(.5rem + 55px)'
 			}}>
-				<img width={'100%'} src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80" />
-				<h3>Nome do item</h3>
+				<img width={'100%'} height={350} src={product?.images[0]} />
+				<h3>{product?.title || 'Carregando produto...'}</h3>
 				<h4>Também pedido com este item</h4>
 				<div style={{
 					display: "flex",
 					overflow: 'auto',
 					padding: '.5rem'
 				}}>
-					{[1, 2, 3, 4, 5].map(i => (
-						<div key={i} style={i !== 5 ? { marginRight: '1rem' } : undefined}>
-							<span>Produto aqui</span>
-							{/* <MenuItem /> */}
+					{productsList.map((product, i) => (
+						<div key={product.id} style={i + 1 < productsList.length ? { marginRight: '1rem' } : undefined}>
+							<MenuItem {...product} onClick={() => navigate(`/item/${product.id}`)} key={product.id} />
 						</div>
 					))}
 				</div>

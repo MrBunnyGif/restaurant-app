@@ -13,13 +13,13 @@ const twentyFiveItems = 'a'.replaceAll('a', 'aaaaa').replaceAll('a', 'aaaaa').sp
 export default () => {
 	const navigate = useNavigate()
 	const dispatch = useDispatch()
-	const productsList = useSelector((state: RootState) => state.products.productsList)
-
-	useEffect(() => {
-		getProductsList()
-			.then((res: any) => dispatch(createProductsList(res.data.products)))
-			.catch(err => console.log(err))
-	}, [])
+	const productsList = useSelector((state: RootState) => {
+		if (!state.products.productsList.length)
+			getProductsList()
+				.then((res: any) => dispatch(createProductsList(res.data.products)))
+				.catch(err => console.error(err))
+		return state.products.productsList
+	})
 
 	return (
 		<>
