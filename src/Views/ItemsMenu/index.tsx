@@ -8,8 +8,6 @@ import { useDispatch, useSelector } from 'react-redux'
 import { createProductsList } from '../../slice';
 import type { RootState } from '../../store'
 
-const twentyFiveItems = 'a'.replaceAll('a', 'aaaaa').replaceAll('a', 'aaaaa').split('')
-
 export default () => {
 	const navigate = useNavigate()
 	const dispatch = useDispatch()
