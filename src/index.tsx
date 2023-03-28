@@ -11,6 +11,7 @@ import {
 import Auth from './Auth';
 import PrivateRoutes from './PrivateRoutes';
 import routes from './Routes'
+import PublicRoutes from './PublicRoutes';
 
 Auth.verifyIfSectionOn()
 
@@ -22,7 +23,10 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
-        <Route path='/' element={<Login />} />
+        <Route element={<PublicRoutes />}>
+          <Route path='/' element={<Login />} />
+        </Route>
+        
         <Route element={<PrivateRoutes />}>
           {routes.map(route => <Route {...route} />)}
         </Route>
