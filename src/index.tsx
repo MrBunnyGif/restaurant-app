@@ -23,7 +23,7 @@ const root = ReactDOM.createRoot(
 
 root.render(
   <React.StrictMode>
-    {/* <Provider store={store}> */}
+    <Provider store={store}>
       <BrowserRouter>
         <Routes>
           <Route element={<PublicRoutes />}>
@@ -35,7 +35,7 @@ root.render(
           </Route>
         </Routes>
       </BrowserRouter>
-    {/* </Provider> */}
+    </Provider>
   </React.StrictMode>
 );
 
