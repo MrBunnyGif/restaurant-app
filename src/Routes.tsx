@@ -18,7 +18,7 @@ const Routes: RouteProps[] = [
     element: <SectionInfo />,
   },
   {
-    path: '/item',
+    path: '/item/:id',
     element: <ItemInfo />,
   },
 ]

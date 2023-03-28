@@ -33,7 +33,7 @@ export default () => {
 				paddingBottom: 'calc(.5rem + 53px)'
 			}}>
 				{productsList.length ?
-					productsList.map(product => <MenuItem {...product} onClick={() => navigate('/item')} key={product.id} />)
+					productsList.map(product => <MenuItem {...product} onClick={() => navigate(`/item/${product.id}`)} key={product.id} />)
 					:
 					<h2>Carregando produtos...</h2>
 				}
