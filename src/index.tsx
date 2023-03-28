@@ -31,7 +31,7 @@ root.render(
           </Route>
 
           <Route element={<PrivateRoutes />}>
-            {routes.map(route => <Route {...route} />)}
+            {routes.map(route => <Route key={route.path} {...route} />)}
           </Route>
         </Routes>
       </BrowserRouter>
