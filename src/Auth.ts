@@ -1,3 +1,5 @@
+import Storage from "./Storage";
+
 class Auth {
 	private sectionOn: boolean;
 	private storageSectionKey: string;
@@ -7,22 +9,18 @@ class Auth {
 		this.storageSectionKey = 'sectionInfo';
 	}
 
-	verifyIfSectionOn() {
-		if (localStorage.getItem(this.storageSectionKey))
-			this.sectionOn = true
-	}
-
 	startSection(name: string, peopleNumber: string) {
 		return new Promise((resolve, reject) => {
 			if (this.sectionOn || !name || !peopleNumber)
 				reject('Ocorreu um erro ao tentar iniciar a mesa')
 
-			localStorage.setItem(this.storageSectionKey, JSON.stringify({
+			const info = {
 				name,
 				peopleNumber,
 				startTime: new Date(),
 				tableNumber: new Date().getSeconds()
-			}))
+			}
+			Storage.setCookie(this.storageSectionKey, info, 1)
 			this.sectionOn = true
 
 			resolve('teste')
@@ -34,8 +32,9 @@ class Auth {
 			if (!this.sectionOn)
 				reject('Sessão não encontrada')
 
-			localStorage.removeItem(this.storageSectionKey)
+			Storage.deleteCookie(this.storageSectionKey)
 			resolve('Sessão finalizada com sucesso')
+			this.sectionOn = false
 		})
 	}
 

@@ -8,14 +8,12 @@ import {
   Route,
   Routes,
 } from "react-router-dom";
-import Auth from './Auth';
 import PrivateRoutes from './PrivateRoutes';
 import routes from './Routes'
 import PublicRoutes from './PublicRoutes';
 import { store } from './store'
 import { Provider } from 'react-redux'
 
-Auth.verifyIfSectionOn()
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
