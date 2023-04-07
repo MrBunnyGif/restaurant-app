@@ -1,12 +1,12 @@
 import Storage from "./Storage";
+import { storageSectionKey } from "./constants";
+import { SectionInfo } from "./types/Redux";
 
 class Auth {
 	private sectionOn: boolean;
-	private storageSectionKey: string;
 
 	constructor() {
 		this.sectionOn = false;
-		this.storageSectionKey = 'sectionInfo';
 	}
 
 	startSection(name: string, peopleNumber: string) {
@@ -14,13 +14,13 @@ class Auth {
 			if (this.sectionOn || !name || !peopleNumber)
 				reject('Ocorreu um erro ao tentar iniciar a mesa')
 
-			const info = {
+			const info: SectionInfo = {
 				name,
 				peopleNumber,
 				startTime: new Date(),
 				tableNumber: new Date().getSeconds()
 			}
-			Storage.setCookie(this.storageSectionKey, info, 1)
+			Storage.setCookie(storageSectionKey, info, 1)
 			this.sectionOn = true
 
 			resolve('teste')
@@ -32,14 +32,14 @@ class Auth {
 			if (!this.sectionOn)
 				reject('Sessão não encontrada')
 
-			Storage.deleteCookie(this.storageSectionKey)
+			Storage.deleteCookie(storageSectionKey)
 			resolve('Sessão finalizada com sucesso')
 			this.sectionOn = false
 		})
 	}
 
 	get isSectionOn() {
-		this.sectionOn = !!Storage.getCookie(this.storageSectionKey)
+		this.sectionOn = !!Storage.getCookie(storageSectionKey)
 		return this.sectionOn
 	}
 }

@@ -1,6 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { Product, sliceType, Bascket } from './types/Redux'
+import { Product, sliceType, Bascket, ProductsToBeAdded, SectionInfo } from './types/Redux'
 import type { PayloadAction } from '@reduxjs/toolkit'
+import Storage from './Storage'
+import { storageSectionKey } from './constants'
 
 const initialState: sliceType = {
   productsList: [],
@@ -14,11 +16,21 @@ export const globalActions = createSlice({
     createProductsList: (state, action: PayloadAction<Product[]>) => {
       state.productsList = action.payload
     },
-    createCurrentBascket: (state, action: PayloadAction<Bascket>) => {
-      state.currentBascket = action.payload
-    },
-    addProductsToBascket: (state, action: PayloadAction<Product[]>) => {
-      action.payload.forEach(product => state.currentBascket?.products.push(product))
+    addProductsToBascket: (state, action: PayloadAction<ProductsToBeAdded>) => {
+      const info = Storage.getCookie(storageSectionKey)
+      if (info === null)
+        return
+
+      const sectionInfo: SectionInfo = JSON.parse(info)
+      if (!state.currentBascket) {
+        state.currentBascket = {
+          id: `${sectionInfo.name}-${sectionInfo.tableNumber}-${new Date().getTime()}`,
+          products: [],
+          status: 'to-kitchen',
+        }
+      }
+      for (let i = 0; i < action.payload.quantity; i++)
+        state.currentBascket?.products.push(action.payload.product)
     }
   },
 })

@@ -53,7 +53,7 @@ export default () => {
 						</div>
 					))}
 				</div>
-				<AddProduct />
+				<AddProduct addProducts={v => console.log(product, v)} />
 				<BascketFooter />
 			</div>
 		</>

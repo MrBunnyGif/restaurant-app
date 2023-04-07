@@ -1,7 +1,9 @@
 import { useState } from "react"
 
 <button>+</button>
-export default () => {
+export default (props:
+  { addProducts: (v: number) => void }
+) => {
   const [quantity, setQuantity] = useState<number>(1)
 
   return (
@@ -11,7 +13,7 @@ export default () => {
       bottom: '4rem',
       backgroundColor: 'white',
       padding: '.5rem',
-      borderRadius:'.5rem'
+      borderRadius: '.5rem'
     }}>
       <button onClick={() => setQuantity(prev => prev + 1)}>+</button>
       <input title="Quantidadde" value={quantity} style={{
@@ -19,9 +21,9 @@ export default () => {
         textAlign: 'center',
         marginLeft: '.5rem'
       }} type="number" disabled />
-      <button style={{ marginLeft: '.5rem' }} onClick={() => quantity > 0 ? setQuantity(prev => prev - 1) : null}>-</button>
+      <button disabled={quantity === 0} style={{ marginLeft: '.5rem' }} onClick={() => quantity > 0 ? setQuantity(prev => prev - 1) : null}>-</button>
 
-      <button style={{ marginLeft: '1rem' }} onClick={() => alert('adicionando')}>Adicionar</button>
+      <button style={{ marginLeft: '1rem' }} onClick={() => props.addProducts(quantity)}>Adicionar</button>
     </div>
   )
 }

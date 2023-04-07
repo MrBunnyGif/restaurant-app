@@ -6,7 +6,7 @@ class Cookies {
     document.cookie = `${name}=${JSON.stringify(value)};${expires};path=/`;
   }
 
-  getCookie(name: string) {
+  getCookie(name: string): string | null {
     const cookieName = `${name}=`;
     const decodedCookie = decodeURIComponent(document.cookie);
     const cookieArray = decodedCookie.split(';');
