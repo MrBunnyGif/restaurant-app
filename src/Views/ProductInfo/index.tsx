@@ -8,6 +8,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import type { RootState } from '../../store'
 import MenuItem from "../../Components/MenuItem";
 import { createProductsList } from "../../slice";
+import AddProduct from "../../Components/AddProduct";
 
 export default () => {
 	const { id } = useParams();
@@ -52,6 +53,7 @@ export default () => {
 						</div>
 					))}
 				</div>
+				<AddProduct />
 				<BascketFooter />
 			</div>
 		</>
