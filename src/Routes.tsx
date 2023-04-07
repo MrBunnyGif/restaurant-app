@@ -1,7 +1,7 @@
 import { RouteProps } from "react-router";
 import Bascket from "./Views/Bascket";
-import ItemInfo from "./Views/ItemInfo";
-import ItemsMenu from "./Views/ItemsMenu";
+import ItemInfo from "./Views/ProductInfo";
+import ItemsMenu from "./Views/ProductsMenu";
 import SectionInfo from "./Views/SectionInfo";
 
 const Routes: RouteProps[] = [
