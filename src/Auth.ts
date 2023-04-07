@@ -38,7 +38,10 @@ class Auth {
 		})
 	}
 
-	get isSectionOn() { return this.sectionOn }
+	get isSectionOn() {
+		this.sectionOn = !!Storage.getCookie(this.storageSectionKey)
+		return this.sectionOn
+	}
 }
 
 export default new Auth()
