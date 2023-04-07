@@ -12,6 +12,14 @@ export interface Product {
   images: string[];
 }
 
+export interface Bascket {
+  id: string,
+  products: Product[],
+  status: string,
+  timeDeliveredKitchen: Date | undefined,
+}
+
 export interface sliceType {
-  productsList: Product[]
+  productsList: Product[],
+  currentBascket: Bascket | undefined
 }
