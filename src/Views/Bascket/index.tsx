@@ -1,6 +1,6 @@
 import BascketFooter from "../../Components/BascketFooter";
 import CloseButton from "../../Components/CloseButton";
-import ItemsList from "../../Components/ItemsList";
+import ItemsList from "../../Components/ProductsList";
 
 export default () => {
 

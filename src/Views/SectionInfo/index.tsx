@@ -1,6 +1,6 @@
 import { useId } from 'react'
 import Button from "../../Components/Button";
-import BascketItem from '../../Components/BascketItem'
+import BascketItem from '../../Components/BascketProduct'
 import BascketFooter from '../../Components/BascketFooter';
 import { useNavigate } from "react-router-dom";
 import CloseButton from '../../Components/CloseButton';

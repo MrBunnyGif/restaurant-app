@@ -1,5 +1,5 @@
 import { useId } from 'react'
-import BascketItem from '../BascketItem'
+import BascketItem from '../BascketProduct'
 
 
 export default (props: { items: any[] }) => (
