@@ -1,12 +1,24 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { Product, sliceType, Bascket, ProductsToBeAdded, SectionInfo } from './types/Redux'
+import { Product, sliceType, ProductsToBeAdded, SectionInfo } from './types/Redux'
 import type { PayloadAction } from '@reduxjs/toolkit'
 import Storage from './Storage'
 import { storageSectionKey } from './constants'
+import { WritableDraft } from 'immer/dist/internal'
 
 const initialState: sliceType = {
   productsList: [],
   currentBascket: undefined
+}
+
+const verifyBascketExistence = (info: string, state: WritableDraft<sliceType>) => {
+  const sectionInfo: SectionInfo = JSON.parse(info)
+  if (!state.currentBascket) {
+    state.currentBascket = {
+      id: `${sectionInfo.name}-${sectionInfo.tableNumber}-${new Date().getTime()}`,
+      products: [],
+      status: 'to-kitchen',
+    }
+  }
 }
 
 export const globalActions = createSlice({
@@ -21,14 +33,8 @@ export const globalActions = createSlice({
       if (info === null)
         return
 
-      const sectionInfo: SectionInfo = JSON.parse(info)
-      if (!state.currentBascket) {
-        state.currentBascket = {
-          id: `${sectionInfo.name}-${sectionInfo.tableNumber}-${new Date().getTime()}`,
-          products: [],
-          status: 'to-kitchen',
-        }
-      }
+      verifyBascketExistence(info, state)
+
       for (let i = 0; i < action.payload.quantity; i++)
         state.currentBascket?.products.push(action.payload.product)
     }
@@ -36,7 +42,7 @@ export const globalActions = createSlice({
 })
 
 // Action creators are generated for each case reducer function
-export const { createProductsList } = globalActions.actions
+export const { createProductsList, addProductsToBascket } = globalActions.actions
 
 export default globalActions.reducer
 

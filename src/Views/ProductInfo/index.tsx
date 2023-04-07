@@ -7,7 +7,7 @@ import { Product } from "../../types/Redux";
 import { useSelector, useDispatch } from 'react-redux'
 import type { RootState } from '../../store'
 import MenuItem from "../../Components/MenuItem";
-import { createProductsList } from "../../slice";
+import { addProductsToBascket, createProductsList, globalActions } from "../../slice";
 import AddProduct from "../../Components/AddProduct";
 
 export default () => {
@@ -31,6 +31,9 @@ export default () => {
 			.catch(err => console.error(err))
 	}, [id])
 
+	if (!product)
+		return <></>
+
 	return (
 		<>
 			<CloseButton />
@@ -38,9 +41,9 @@ export default () => {
 				padding: '.5rem',
 				paddingBottom: 'calc(.5rem + 55px)'
 			}}>
-				<img width={'100%'} height={350} src={product?.images[0]} />
-				<h3>{product?.title || 'Carregando produto...'}</h3>
-				<p>{product?.description}</p>
+				<img width={'100%'} height={350} src={product.images[0]} />
+				<h3>{product.title || 'Carregando produto...'}</h3>
+				<p>{product.description}</p>
 				<h4>Também pedido com este item</h4>
 				<div style={{
 					display: "flex",
@@ -53,7 +56,7 @@ export default () => {
 						</div>
 					))}
 				</div>
-				<AddProduct addProducts={v => console.log(product, v)} />
+				<AddProduct addProducts={q => dispatch(addProductsToBascket({ product: product, quantity: q }))} />
 				<BascketFooter />
 			</div>
 		</>
