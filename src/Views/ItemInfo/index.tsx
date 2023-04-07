@@ -39,6 +39,7 @@ export default () => {
 			}}>
 				<img width={'100%'} height={350} src={product?.images[0]} />
 				<h3>{product?.title || 'Carregando produto...'}</h3>
+				<p>{product?.description}</p>
 				<h4>Também pedido com este item</h4>
 				<div style={{
 					display: "flex",
