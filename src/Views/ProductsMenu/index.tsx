@@ -12,11 +12,11 @@ export default () => {
 	const navigate = useNavigate()
 	const dispatch = useDispatch()
 	const productsList = useSelector((state: RootState) => {
-		if (!state.products.productsList.length)
+		if (!state.globalActions.productsList.length)
 			getProductsList()
 				.then((res: any) => dispatch(createProductsList(res.data.products)))
 				.catch(err => console.error(err))
-		return state.products.productsList
+		return state.globalActions.productsList
 	})
 
 	return (

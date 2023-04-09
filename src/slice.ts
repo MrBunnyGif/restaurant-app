@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { combineReducers, createSlice } from '@reduxjs/toolkit'
 import { Product, sliceType, ProductsToBeAdded, SectionInfo } from './types/Redux'
 import type { PayloadAction } from '@reduxjs/toolkit'
 import Storage from './Storage'
@@ -43,6 +43,9 @@ export const globalActions = createSlice({
 
 // Action creators are generated for each case reducer function
 export const { createProductsList, addProductsToBascket } = globalActions.actions
+const rootReducer = combineReducers({
+  globalActions: globalActions.reducer
+});
 
-export default globalActions.reducer
+export default rootReducer
 
