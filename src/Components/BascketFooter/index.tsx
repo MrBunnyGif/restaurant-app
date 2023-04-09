@@ -1,7 +1,22 @@
+import { useSelector } from 'react-redux'
 import { divType } from '../../types/Components'
 import Button from '../Button'
-
+import { RootState } from '../../store'
+import { useEffect } from 'react'
+import { Product } from '../../types/Redux'
 export default (props: divType) => {
+	const bascket = useSelector((state: RootState) => state.globalActions.currentBascket)
+
+	const sumBascketPrices = (products: Product[] | undefined): string => {
+		let total = 0;
+		if (products?.length)
+			products.forEach(product => total += product.price)
+		return total.toLocaleString("pt-BR", {
+			style: "currency",
+			currency: "BRL",
+		});
+	}
+
 	return (
 		<footer style={{
 			backgroundColor: 'tomato',
@@ -19,9 +34,9 @@ export default (props: divType) => {
 					:
 					<span style={{
 						marginRight: '1rem'
-					}}>N° Items</span>
+					}}>{bascket?.products.length || 0} Items</span>
 				}
-				<span>R$ Total</span>
+				<span>{sumBascketPrices(bascket?.products)}</span>
 			</div>
 			<Button />
 		</footer >

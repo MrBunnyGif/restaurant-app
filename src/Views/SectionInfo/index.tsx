@@ -5,6 +5,8 @@ import BascketFooter from '../../Components/BascketFooter';
 import { useNavigate } from "react-router-dom";
 import CloseButton from '../../Components/CloseButton';
 import Auth from '../../Auth';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../store';
 const logo = require("../../logo.svg") as string;
 
 const itemsBoxStyle = {
@@ -14,8 +16,10 @@ const itemsBoxStyle = {
 	paddingRight: '.5rem'
 }
 
+
 export default () => {
 	const navigate = useNavigate();
+	const bascket = useSelector((state: RootState) => state.globalActions.currentBascket)
 
 	const handleFinish = () => {
 		Auth.finishSection()
@@ -41,12 +45,18 @@ export default () => {
 				</div>
 
 				<div>
-					<h3>Itens a serem entregues à mesa</h3>
-					<div style={itemsBoxStyle}>
-						{['1', '2', '3'].map(i => (
-							<BascketProduct key={useId()} name={i} />
-						))}
-					</div>
+					{bascket?.status === 'on-kitchen' ?
+						<>
+							<h3>Itens a serem entregues à mesa</h3>
+							<div style={itemsBoxStyle}>
+								{bascket?.products.map(product => (
+									<BascketProduct key={useId()} name={product.title} />
+								))}
+							</div>
+						</>
+						:
+						<></>
+					}
 				</div>
 
 				<div>
