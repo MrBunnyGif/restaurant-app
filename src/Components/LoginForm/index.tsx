@@ -12,7 +12,7 @@ export default () => {
 
 	const handleStartSection = () => {
 		Auth.startSection(nameValue, numberValue)
-			.then(() => navigate('/menu'))
+			.then(() => setTimeout(() => navigate('/menu'), 500))
 			.catch(err => { throw new Error(err) })
 	}
 
@@ -33,9 +33,9 @@ export default () => {
 				margin: 'auto'
 			}}>
 				<form onSubmit={handleStartSection}>
-				<Input onChange={v => setNameValue(v.target.value)} placeholder="Nome" />
-				<Input onChange={v => setNumberValue(v.target.value)} type="number" placeholder="N° de pessoas" />
-				<Buton disabled={!nameValue?.length || !numberValue?.length} type="submit" />
+					<Input onChange={v => setNameValue(v.target.value)} placeholder="Nome" />
+					<Input onChange={v => setNumberValue(v.target.value)} type="number" placeholder="N° de pessoas" />
+					<Buton disabled={!nameValue?.length || !numberValue?.length} type="submit" />
 				</form>
 			</div>
 		</div>
