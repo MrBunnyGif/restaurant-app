@@ -32,9 +32,11 @@ export default () => {
 				maxWidth: '70%',
 				margin: 'auto'
 			}}>
+				<form onSubmit={handleStartSection}>
 				<Input onChange={v => setNameValue(v.target.value)} placeholder="Nome" />
 				<Input onChange={v => setNumberValue(v.target.value)} type="number" placeholder="N° de pessoas" />
-				<Buton disabled={!nameValue?.length || !numberValue?.length} onClick={handleStartSection} />
+				<Buton disabled={!nameValue?.length || !numberValue?.length} type="submit" />
+				</form>
 			</div>
 		</div>
 	)
