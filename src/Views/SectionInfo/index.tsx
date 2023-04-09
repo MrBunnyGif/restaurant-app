@@ -1,6 +1,6 @@
 import { useId } from 'react'
 import Button from "../../Components/Button";
-import BascketItem from '../../Components/BascketProduct'
+import BascketProduct from '../../Components/BascketProduct'
 import BascketFooter from '../../Components/BascketFooter';
 import { useNavigate } from "react-router-dom";
 import CloseButton from '../../Components/CloseButton';
@@ -44,7 +44,7 @@ export default () => {
 					<h3>Itens a serem entregues à mesa</h3>
 					<div style={itemsBoxStyle}>
 						{['1', '2', '3'].map(i => (
-							<BascketItem key={useId()} name={i} />
+							<BascketProduct key={useId()} name={i} />
 						))}
 					</div>
 				</div>
@@ -53,7 +53,7 @@ export default () => {
 					<h3>Itens já entregues à mesa</h3>
 					<div style={itemsBoxStyle}>
 						{['4', '5', '6', '7', '8', '9', '10'].map(i => (
-							<BascketItem key={useId()} name={i} />
+							<BascketProduct key={useId()} name={i} />
 						))}
 					</div>
 				</div>

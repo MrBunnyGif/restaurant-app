@@ -1,5 +1,5 @@
 import { useId } from 'react'
-import BascketItem from '../BascketProduct'
+import BascketProduct from '../BascketProduct'
 
 
 export default (props: { items: any[] }) => (
@@ -8,7 +8,7 @@ export default (props: { items: any[] }) => (
         paddingTop: '3rem'
     }}>
         {props.items.map(i => (
-            <BascketItem key={useId()} name={i} />
+            <BascketProduct key={useId()} name={i} />
         ))}
     </div>
 )
