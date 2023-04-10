@@ -35,7 +35,7 @@ export default () => {
 					:
 					<h2>Carregando produtos...</h2>
 				}
-				<BascketFooter onClick={() => navigate('/bascket')} />
+				{/* <BascketFooter onClick={() => navigate('/bascket')} /> */}
 			</div>
 		</>
 	)

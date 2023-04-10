@@ -57,7 +57,7 @@ export default () => {
 					))}
 				</div>
 				<AddProduct addProducts={q => dispatch(addProductsToBascket({ product: product, quantity: q }))} />
-				<BascketFooter />
+				{/* <BascketFooter /> */}
 			</div>
 		</>
 	)

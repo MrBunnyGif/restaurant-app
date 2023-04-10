@@ -25,7 +25,7 @@ export default () => {
 				</>
 
 			}
-			<BascketFooter inBascket />
+			{/* <BascketFooter inBascket /> */}
 		</>
 	)
 }

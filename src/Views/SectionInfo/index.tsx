@@ -68,7 +68,7 @@ export default () => {
 					</div>
 				</div>
 			</div>
-			<BascketFooter />
+			{/* <BascketFooter /> */}
 		</>
 	)
 }
