@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router";
-import BascketFooter from "../../Components/BascketFooter";
-import CloseButton from "../../Components/CloseButton";
+import BascketFooter from "../../components/BascketFooter";
+import CloseButton from "../../components/CloseButton";
 import { getProductInfo, getProductsList } from "../../services";
-import { Product } from "../../types/Redux";
+import { Product } from "../../types/redux";
 import { useSelector, useDispatch } from 'react-redux'
 import type { RootState } from '../../store'
-import MenuItem from "../../Components/MenuItem";
+import MenuItem from "../../components/MenuItem";
 import { addProductsToBascket, createProductsList, globalActions } from "../../slice";
-import AddProduct from "../../Components/AddProduct";
+import AddProduct from "../../components/AddProduct";
 
 export default () => {
 	const { id } = useParams();

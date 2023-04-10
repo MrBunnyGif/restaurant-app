@@ -1,8 +1,8 @@
 import { useEffect, useId } from 'react'
 import { useNavigate } from 'react-router-dom';
-import BascketFooter from "../../Components/BascketFooter";
-import SectionButton from '../../Components/SectionButton';
-import MenuItem from "../../Components/MenuItem";
+import BascketFooter from "../../components/BascketFooter";
+import SectionButton from '../../components/SectionButton';
+import MenuItem from "../../components/MenuItem";
 import { getProductsList } from '../../services';
 import { useDispatch, useSelector } from 'react-redux'
 import { createProductsList } from '../../slice';

@@ -1,5 +1,5 @@
-import { divType } from "../../types/Components";
-import { Product } from "../../types/Redux";
+import { divType } from "../../types/components";
+import { Product } from "../../types/redux";
 
 export default (props: divType & Product) => (
     <div style={{ outline: '1px solid tomato' }}

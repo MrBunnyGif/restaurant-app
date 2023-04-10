@@ -1,9 +1,9 @@
 import { useId } from 'react'
-import Button from "../../Components/Button";
-import BascketProduct from '../../Components/BascketProduct'
-import BascketFooter from '../../Components/BascketFooter';
+import Button from "../../components/Button";
+import BascketProduct from '../../components/BascketProduct'
+import BascketFooter from '../../components/BascketFooter';
 import { useNavigate } from "react-router-dom";
-import CloseButton from '../../Components/CloseButton';
+import CloseButton from '../../components/CloseButton';
 import Auth from '../../Auth';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../store';

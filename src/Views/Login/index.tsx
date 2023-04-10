@@ -1,6 +1,6 @@
 import './App.css';
-import LoginForm from '../../Components/LoginForm';
-import SystemLogo from '../../Components/SystemLogo';
+import LoginForm from '../../components/LoginForm';
+import SystemLogo from '../../components/SystemLogo';
 
 function App() {
   return (

@@ -1,9 +1,9 @@
 import { useSelector } from 'react-redux'
-import { divType } from '../../types/Components'
+import { divType } from '../../types/components'
 import Button from '../Button'
 import { RootState } from '../../store'
 import { useEffect } from 'react'
-import { Product } from '../../types/Redux'
+import { Product } from '../../types/redux'
 export default (props: divType) => {
 	const bascket = useSelector((state: RootState) => state.globalActions.currentBascket)
 

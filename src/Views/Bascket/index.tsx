@@ -1,9 +1,9 @@
 import { useSelector } from "react-redux";
-import BascketFooter from "../../Components/BascketFooter";
-import CloseButton from "../../Components/CloseButton";
-import ItemsList from "../../Components/ProductsList";
+import BascketFooter from "../../components/BascketFooter";
+import CloseButton from "../../components/CloseButton";
+import ItemsList from "../../components/ProductsList";
 import { RootState } from "../../store";
-import { Product } from "../../types/Redux";
+import { Product } from "../../types/redux";
 
 export default () => {
 	const bascket = useSelector((state: RootState) => state.globalActions.currentBascket)

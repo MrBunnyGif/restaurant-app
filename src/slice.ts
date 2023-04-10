@@ -1,7 +1,7 @@
 import { combineReducers, createSlice } from '@reduxjs/toolkit'
-import { Product, sliceType, ProductsToBeAdded, SectionInfo } from './types/Redux'
+import { Product, sliceType, ProductsToBeAdded, SectionInfo } from './types/redux'
 import type { PayloadAction } from '@reduxjs/toolkit'
-import Storage from './Storage'
+import Storage from './storage'
 import { storageSectionKey } from './constants'
 import { WritableDraft } from 'immer/dist/internal'
 

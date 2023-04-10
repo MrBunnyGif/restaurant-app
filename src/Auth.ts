@@ -1,6 +1,6 @@
-import Storage from "./Storage";
+import Storage from "./storage";
 import { storageSectionKey } from "./constants";
-import { SectionInfo } from "./types/Redux";
+import { SectionInfo } from "./types/redux";
 
 class Auth {
 	private sectionOn: boolean;
